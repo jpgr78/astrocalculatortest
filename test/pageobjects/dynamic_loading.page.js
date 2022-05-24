@@ -193,7 +193,7 @@ async logout (test) {
     });
   }
   async calculateweight(test) {
-    it(test.text, async () => {
+    it(test.text+' '+browser.capabilities.browserName, async () => {
         if(test.path!='N/A')
             await this.open(testing.path);
       
@@ -206,7 +206,7 @@ async logout (test) {
      
         await $(test.but).click();
     
-        await browser.saveScreenshot('./screenshot/'+test.text+'.png');
+        await browser.saveScreenshot('./screenshot/'+test.text+' '+browser.capabilities.browserName+'.png');
         
     
        
@@ -218,7 +218,7 @@ async logout (test) {
  }
 
  async addplanet(test) {
-    it(test.text, async () => {
+    it(test.text+' '+browser.capabilities.browserName, async () => {
         if(test.path!='N/A')
             await this.open(testing.path);
       
@@ -232,8 +232,8 @@ async logout (test) {
         await $(test.but).click();
         await browser.pause(2000)
         await $(test.element).selectByVisibleText(test.name);
-        await browser.saveScreenshot('./screenshot/'+test.text+'.png');
-        await console.log(test.elementexpected+"="+test.name)
+        await browser.saveScreenshot('./screenshot/'+test.text+' '+browser.capabilities.browserName+'.png');
+        //await console.log(test.elementexpected+"="+test.name)
         await expect($(test.elementexpected+"="+test.name)).toBeSelected();
              
   });
@@ -249,7 +249,7 @@ async logout (test) {
   }
 
   async selection(path,element,word,text) {
-    it(text, async () => {
+    it(text+' '+browser.capabilities.browserName, async () => {
          
         if(path!='N/A')
             await this.open(path);
